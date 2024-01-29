@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+<div id="root">
+  <h1>Hello World!</h1>
+  <h2>Welcome to this simple FlaskApp fullstack template.</h2>
+  <h3>{{ utc_dt }}</h3>
+
+  <form action="{{ url_for('index') }}" method="POST">
+    <label for="number1">Number 1:</label>
+    <input type="number" name="number1" required />
+
+    <label for="number2">Number 2:</label>
+    <input type="number" name="number2" required />
+
+    <label for="number3">Number 3:</label>
+    <input type="number" name="number3" required />
+
+    <button type="submit">Submit Numbers</button>
+  </form>
+
+  {% if numbers %}
+  <h3>Numbers:</h3>
+  <ul>
+    {% for number in numbers %}
+    <li>{{ number }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
+{% endblock %}
